@@ -7,3 +7,4 @@ import { Component } from '@angular/core';
   styleUrl: './segundo-componente.css',
 })
 export class SegundoComponente {}
+nome = 'Kesia';
