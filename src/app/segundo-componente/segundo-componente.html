@@ -1,4 +1,21 @@
 <h2>Aprofundando os conhecimentos em templates</h2>
-<img src="/images/kesia foto.jpg" alt="Foto da Kesia" width="480" height="240" />
-<p>{{ nome | uppercase }}</p>
-<p>Data de nascimento: {{ dataNascimento | date: 'dd/MM/yyyy' }}</p>
+
+<div class="card">
+  <img 
+    [src]="pessoa.urlImagem" 
+    [alt]="pessoa.nome || 'Imagem de ' + pessoa.nome"
+    width="300" 
+    height="200" 
+  />
+
+  <p><strong>Nome:</strong> {{ pessoa.nome | uppercase }}</p>
+
+  <p>
+    <strong>Data de nascimento:</strong>
+    {{ pessoa.dataNascimento | date: 'dd/MM/yyyy' }}
+  </p>
+
+  <button (click)="mostrarDataNascimento()">
+    Mostrar Data de Nascimento
+  </button>
+</div>

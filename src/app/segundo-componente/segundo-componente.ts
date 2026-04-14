@@ -1,13 +1,26 @@
 import { Component } from '@angular/core';
-import { UpperCasePipe, DatePipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-segundo-componente',
-  imports: [UpperCasePipe, DatePipe],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './segundo-componente.html',
-  styleUrl: './segundo-componente.css',
+  styleUrls: ['./segundo-componente.css']
 })
 export class SegundoComponente {
-  nome = 'Kesia';
-  dataNascimento = new Date('1992-10-30');
+  pessoa: Pessoa = {
+    nome: 'Kesia',
+    dataNascimento: new Date(2000, 0, 1),
+    urlImagem: '/assets/foto-kesia.jpg'
+  };
+
+  mostrarDataNascimento(): void {
+    alert(this.pessoa.dataNascimento.toLocaleDateString());
+  }
+} 
+export interface Pessoa {
+  nome: string;
+  dataNascimento: Date;
+  urlImagem: string;
 }
